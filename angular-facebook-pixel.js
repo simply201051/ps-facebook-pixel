@@ -5,8 +5,8 @@
 			var id,
 				currency = 'TWD';
 			var $pixelProvider = {
-				setAccount: setAccount,
 				setCurrency: setCurrency,
+				setId: setId,
 				$get: Pixel
 			};
 			return $pixelProvider;
