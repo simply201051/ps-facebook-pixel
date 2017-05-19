@@ -27,28 +27,28 @@ AngularJS lazy load youtube video
   ```
 
 ### PageView
-    ```js
-    myApp.run(function($pixel) {
-      $pixel.pageView();
-    })
-    ```
+  ```js
+  myApp.run(function($pixel) {
+    $pixel.pageView();
+  })
+  ```
 
 ### Track
-    ```js
-    $pixel.track('AddToCart', {
-      content_ids: ['1234', '1853', '9386'],
-      content_type: 'product',
-      value: 67,
-      currency: 'TWD'
-    })
-    ```
+  ```js
+  $pixel.track('AddToCart', {
+    content_ids: ['1234', '1853', '9386'],
+    content_type: 'product',
+    value: 67,
+    currency: 'TWD'
+  })
+  ```
     
 ### Purchase
-    ```js
-    $pixel.purchase(67);
-    <!--- or --->
-    $pixel.purchase({
-      value: 67,
-      currency: 'TWD'
-    });
-    ```
+  ```js
+  $pixel.purchase(67);
+  <!--- or --->
+  $pixel.purchase({
+    value: 67,
+    currency: 'TWD'
+  });
+  ```
