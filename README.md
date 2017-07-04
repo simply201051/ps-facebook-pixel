@@ -25,7 +25,7 @@ AngularJS lazy load youtube video
   myApp.controller('Ctrl', function($pixel) {})
   ```
 
-### PageView
+### Manual PageView
   ```js
   myApp.run(function($pixel) {
     $pixel.pageView();
