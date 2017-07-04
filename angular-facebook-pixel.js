@@ -2,9 +2,8 @@
 	'use strict';
 	angular.module('ps-facebook-pixel', [])
 		.provider('$pixel', function() {
-			var id,
-				currency = 'TWD';
 			var $pixelProvider = {
+				currency: 'TWD',
 				setCurrency: setCurrency,
 				setId: setId,
 				$get: Pixel
@@ -13,15 +12,18 @@
 
 			function init() {
 				!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-				fbq('init', id);
+				
+				fbq.disablePushState = !!$pixelProvider.disablePushState;
+				fbq('init', $pixelProvider.id);
+				if (!$pixelProvider.delayPageView) fbq('track', 'PageView');
 			}
 
-			function setId(val) {
-				id = val;
+			function setId(id) {
+				$pixelProvider.id = id;
 			}
 
-			function setCurrency(val) {
-				currency = val;
+			function setCurrency(currency) {
+				$pixelProvider.currency = currency;
 			}
 
 			function Pixel() {
@@ -41,7 +43,7 @@
 					var params = angular.isObject(val) ? val : {
 						value: val
 					};
-					if (!params.currency) params.currency = currency;
+					if (!params.currency) params.currency = $pixelProvider.currency;
 					fbq('track', 'Purchase', params);
 				}
 
