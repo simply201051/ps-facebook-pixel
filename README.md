@@ -1,5 +1,5 @@
 # ps-facebook-pixel
-AngularJS lazy load youtube video
+AngularJS facebook pixel analytics
 
 ## Usage
   -load js
