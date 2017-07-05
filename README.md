@@ -12,27 +12,24 @@ AngularJS lazy load youtube video
   ```js
   angular.module('MyApp', ['ps-facebook-pixel'])
   ```
-  -config
+## Config
   ```js
   myApp.config(function($pixelProvider) {
-    $pixelProvider.setAccount('1234567890') // your pixel account
-    $pixelProvider.setCurrency('TWD') // this default is TWD!
+    $pixelProvider.id = '1234567890'; // required, pixel id
+    $pixelProvider.currency = 'TWD'; // options, default is TWD!
+    $pixelProvider.disablePushState = false; // options, default is false
+    $pixelProvider.delayPageView = false; // options, default is false
   })
   ```
-  
-  -controller
-  ```js
-  myApp.controller('Ctrl', function($pixel) {})
-  ```
 
-### Manual PageView
+## Manual PageView
   ```js
   myApp.run(function($pixel) {
     $pixel.pageView();
   })
   ```
 
-### Track
+## Track
   ```js
   $pixel.track('AddToCart', {
     content_ids: ['1234', '1853', '9386'],
@@ -42,7 +39,7 @@ AngularJS lazy load youtube video
   })
   ```
     
-### Purchase
+## Purchase
   ```js
   $pixel.purchase(67);
   <!--- or --->
