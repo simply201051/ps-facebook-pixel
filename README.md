@@ -16,13 +16,14 @@ AngularJS lazy load youtube video
   ```js
   myApp.config(function($pixelProvider) {
     $pixelProvider.id = '1234567890'; // required, pixel id
-    $pixelProvider.currency = 'TWD'; // options, default is TWD!
-    $pixelProvider.disablePushState = false; // options, default is false
-    $pixelProvider.delayPageView = false; // options, default is false
+    $pixelProvider.currency = 'TWD'; // optional, default is TWD!
+    $pixelProvider.disablePushState = false; // optional, default is false
+    $pixelProvider.delayPageView = false; // optional, default is false
   })
   ```
 
 ## Manual PageView
+  if you set delayPageView, manual pageview start
   ```js
   myApp.run(function($pixel) {
     $pixel.pageView();
